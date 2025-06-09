@@ -60,39 +60,13 @@ const stats = ref([
     { number: '5★', label: 'Kiwango cha Huduma', icon: Star }
 ])
 
-// Projects data
-const projects = ref([
-    {
-        id: 1,
-        status: 'Imekamilika',
-        title: 'Ujenzi wa Nyumba za Kisasa',
-        place: 'Arusha Ploti 201',
-        description: 'Nyumba za kisasa zenye vipengele vya teknolojia ya hali ya juu na muundo wa kisasa.',
-        image: imgUrl[`../assets/c1.jpg`],
-        category: 'Makazi',
-        duration: '8 miezi'
-    },
-    {
-        id: 2,
-        status: 'Imekamilika',
-        title: 'Jengo la Biashara',
-        place: 'Dar es Salaam CBD',
-        description: 'Jengo la biashara lenye orofa 12 na vipengele vya kisasa vya uongozi wa nishati.',
-        image: imgUrl[`../assets/c1.jpg`],
-        category: 'Biashara',
-        duration: '18 miezi'
-    },
-    {
-        id: 3,
-        status: 'Haijakamilika',
-        title: 'Kiwanda cha Uzalishaji',
-        place: 'Morogoro',
-        description: 'Kiwanda cha kisasa cha uzalishaji chenye teknolojia ya hali ya juu.',
-        image: imgUrl[`../assets/c1.jpg`],
-        category: 'Viwanda',
-        duration: '24 miezi'
+// Accept projects as a prop from Inertia
+const props = defineProps({
+    projects: {
+        type: Array,
+        default: () => []
     }
-])
+})
 
 // Services data with enhanced information
 const services = ref([
@@ -219,9 +193,9 @@ const filterBtn = (Category) => {
 
 const filterProjects = computed(() => {
     if (activeCategory.value === 'Yote') {
-        return projects.value
+        return props.projects
     }
-    return projects.value.filter((project) => project.status === activeCategory.value)
+    return props.projects.filter((project) => project.status === activeCategory.value)
 })
 
 // FAQ toggle function
@@ -295,12 +269,6 @@ const toggleFaq = (index) => {
                 </div>
             </div>
         </div>
-
-
-
-
-
-
 
 
 
