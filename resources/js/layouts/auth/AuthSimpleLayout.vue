@@ -14,10 +14,13 @@ defineProps<{
             <div class="flex flex-col gap-8">
                 <div class="flex flex-col items-center gap-4">
                     <Link :href="route('home')" class="flex flex-col items-center gap-2 font-medium">
-                        <div class="mb-1 flex h-9 w-9 items-center justify-center rounded-md">
-                            <AppLogoIcon class="size-9 fill-current text-[var(--foreground)] dark:text-white" />
+                    <div class="mb-1 flex h-20 w-20 items-center justify-center rounded-md">
+                        <div class="rounded-xl group-hover:rotate-6 transition-transform duration-300">
+                            <img src="../../assets/LOGO.png" alt="Logo" class="h-20 w-auto object-contain">
                         </div>
-                        <span class="sr-only">{{ title }}</span>
+                        <!-- <AppLogoIcon class="size-9 fill-current text-[var(--foreground)] dark:text-white" /> -->
+                    </div>
+                    <span class="sr-only">{{ title }}</span>
                     </Link>
                     <div class="space-y-2 text-center">
                         <h1 class="text-xl font-medium">{{ title }}</h1>
