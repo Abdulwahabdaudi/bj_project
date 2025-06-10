@@ -429,7 +429,7 @@ const toggleFaq = (index) => {
                             class="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
                             <!-- Image -->
                             <div class="relative overflow-hidden h-64">
-                                <img :src="project.image" :alt="project.title"
+                                <img :src="`/storage/${project.image}`" :alt="project.title"
                                     class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
                                 <div class="absolute top-4 left-4">
                                     <span :class="{
@@ -438,7 +438,10 @@ const toggleFaq = (index) => {
                                     }" class="px-3 py-1 rounded-full text-white text-sm font-bold">
                                         {{ project.status }}
                                     </span>
-                                </div>
+                              
+                              
+                              
+                          </div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 </div>

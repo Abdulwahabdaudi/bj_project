@@ -11,8 +11,8 @@ Route::get('dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Admin routes
-Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+// Admin routes - protected by is_admin middleware
+Route::middleware(['auth', 'verified', 'is_admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::resource('projects', AdminProjectController::class);
 });
 
