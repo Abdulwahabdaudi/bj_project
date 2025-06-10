@@ -1,4 +1,4 @@
-import{c as a}from"./LOGO-B8OI8nZh.js";/**
+import{c as a}from"./LOGO-7u_PFobj.js";/**
  * @license lucide-vue-next v0.468.0 - ISC
  *
  * This source code is licensed under the ISC license.
