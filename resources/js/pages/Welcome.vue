@@ -46,17 +46,20 @@ const imgUrl = import.meta.glob('../assets/*.jpg', {
 
 
 const company = {
-    name: "BJ DESIGN AND CONSTRUCTION",
+    name: "BJ DESIGNING AND CONSTRUCTION",
     email: "bjdesigning2020@gmail.com", // Path to your logo
     phone: "+255756420776",
+    logo: "../assets/LOGO.png",
+    whatsapp: "+255627420776",
+    whatsappMessage: "Hello, I'm interested in your construction services"
 
 };
 
 // Stats data
 const stats = ref([
-    { number: '150+', label: 'Miradi Iliyokamilika', icon: CheckCircle },
+    { number: '50+', label: 'Miradi Iliyokamilika', icon: CheckCircle },
     { number: '50+', label: 'Wateja Wenye Furaha', icon: Users },
-    { number: '10+', label: 'Miaka ya Uzoefu', icon: Clock },
+    { number: '5+', label: 'Miaka ya Uzoefu', icon: Clock },
     { number: '5★', label: 'Kiwango cha Huduma', icon: Star }
 ])
 
@@ -208,60 +211,61 @@ const toggleFaq = (index) => {
     <div class="bg-slate-50 min-h-screen">
 
 
-        <!-- Floating Contact Bar - Place after opening <div class="bg-slate-50 min-h-screen"> -->
+
+
+        <!-- Floating Contact Bar -->
         <div class="fixed top-0 left-0 right-0 z-50">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto px-3 sm:px-4">
                 <div
-                    class="flex justify-between items-center py-2 px-6 bg-white/95 backdrop-blur-lg rounded-b-3xl shadow-lg border border-gray-200/30 hover:shadow-xl transition-all duration-300">
-                    <!-- Logo with animated hover effect -->
-                    <Link href="/" class="flex items-center group">
-                    <div class="rounded-xl group-hover:rotate-6 transition-transform duration-300">
+                    class="flex justify-between items-center py-2 px-4 bg-white/95 backdrop-blur-lg rounded-b-2xl sm:rounded-b-3xl shadow-md border border-gray-200/30 transition-all duration-300">
 
-                        <div class="rounded-xl group-hover:rotate-6 transition-transform duration-300">
-                            <img src="../assets/LOGO.png" :alt="`${company.name} Logo`"
-                                class="h-10 w-auto object-contain">
-                        </div>
-
+                    <!-- Logo Section - Simplified for mobile -->
+                    <Link href="/" class="flex items-center group min-w-0">
+                    <div class="rounded-lg group-hover:rotate-6 transition-transform duration-300">
+                        <img src="../assets/LOGO.png" alt="Logo" class="h-8 w-auto object-contain sm:h-10">
                     </div>
                     <span
-                        class="ml-3 text-xl font-bold bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent">{{
-                            company.name }}</span>
+                        class="ml-2 text-sm sm:text-lg font-bold bg-gradient-to-r from-orange-600 to-orange-400 bg-clip-text text-transparent truncate">
+                        {{ company.name }}
+                    </span>
                     </Link>
 
-                    <!-- Contact Buttons with pulse animation -->
-                    <div class="flex items-center space-x-3">
-                        <!-- WhatsApp with floating animation -->
+                    <!-- Contact Buttons - Optimized for small screens -->
+                    <div class="flex items-center space-x-2 sm:space-x-3">
+                        <!-- WhatsApp Button -->
                         <a href="https://wa.me/255627420776"
-                            class="relative p-2 bg-green-500 hover:bg-green-600 rounded-full shadow-md hover:shadow-lg transition-all duration-300 group"
+                            class="relative  p-1.5 sm:p-2 bg-green-500 hover:bg-green-600 rounded-full shadow hover:shadow-md transition-all duration-300"
                             aria-label="Chat on WhatsApp">
-                            <Phone class="h-5 w-5 text-white" />
-                            <span class="absolute -top-1 -right-1 flex h-5 w-5">
+                            <img src="../assets/whatsapp.png" alt="WhatsApp"
+                                class="h-5 w-5 sm:h-6 sm:w-6 object-contain">
+                            <span class="absolute -top-1 -right-1 flex h-4 w-4 sm:h-5 sm:w-5">
                                 <span
                                     class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                                 <span
-                                    class="relative inline-flex rounded-full h-5 w-5 bg-green-600 text-xs text-white items-center justify-center font-bold">!</span>
+                                    class="relative inline-flex rounded-full h-4 w-4 sm:h-5 sm:w-5 bg-green-600 text-[10px] sm:text-xs text-white items-center justify-center font-bold">!</span>
                             </span>
                         </a>
 
-                        <!-- Call button with ring animation -->
-                        <a href="tel:+255756420776"
-                            class="p-2 bg-blue-500 hover:bg-blue-600 rounded-full shadow-md hover:shadow-lg transition-all duration-300 animate-soft-ring"
+                        <!-- Call Button -->
+                        <a :href="`tel:${company.phone}`"
+                            class="p-1.5 sm:p-2 bg-blue-500 hover:bg-blue-600 rounded-full shadow hover:shadow-md transition-all duration-300 animate-soft-ring"
                             aria-label="Call us">
-                            <Phone class="h-5 w-5 text-white" />
+                            <Phone class="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                         </a>
 
-                        <!-- Phone number with hover effect -->
-                        <div class="hidden md:block">
-                            <a href="tel:+255756420776" class="flex items-center space-x-2 group">
+                        <!-- Phone Number (Desktop only) -->
+                        <div class="hidden md:flex items-center ml-1">
+                            <a :href="`tel:${company.phone}`" class="flex items-center space-x-2 group">
                                 <div
-                                    class="flex items-center justify-center h-9 w-9 rounded-full bg-orange-100 group-hover:bg-orange-200 transition-all duration-300 group-hover:rotate-12">
-                                    <Phone class="h-5 w-5 text-orange-600" />
+                                    class="flex items-center justify-center h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-orange-100 group-hover:bg-orange-200 transition-all duration-300 group-hover:rotate-12">
+                                    <Phone class="h-4 w-4 sm:h-5 sm:w-5 text-orange-600" />
                                 </div>
                                 <div class="text-left">
                                     <p class="text-xs font-medium text-gray-500">Call Us Now</p>
                                     <p
-                                        class="text-sm font-bold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
-                                        +255 756 420 776</p>
+                                        class="text-xs sm:text-sm font-bold text-slate-800 group-hover:text-orange-600 transition-colors duration-300">
+                                        {{ company.phone }}
+                                    </p>
                                 </div>
                             </a>
                         </div>
@@ -269,6 +273,7 @@ const toggleFaq = (index) => {
                 </div>
             </div>
         </div>
+
 
 
 
@@ -293,9 +298,9 @@ const toggleFaq = (index) => {
 
                     <!-- Main Heading -->
                     <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
-                        Jenga kwa
+                        Jenga
                         <span class="bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
-                            Ujasiri
+                            Kisasa
                         </span>
                     </h1>
 
@@ -438,10 +443,10 @@ const toggleFaq = (index) => {
                                     }" class="px-3 py-1 rounded-full text-white text-sm font-bold">
                                         {{ project.status }}
                                     </span>
-                              
-                              
-                              
-                          </div>
+
+
+
+                                </div>
                                 <div
                                     class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                 </div>
@@ -627,16 +632,16 @@ const toggleFaq = (index) => {
 
                     <!-- Quick Links -->
                     <div>
-                        <h4 class="text-lg font-bold mb-6 text-orange-400">Viunganisho Muhimu</h4>
+                        <h4 class="text-lg font-bold mb-6 text-orange-400"> Links</h4>
                         <ul class="space-y-3">
-                            <li><a href="#" class="text-slate-300 hover:text-orange-400 transition-colors">Kuhusu</a>
+                            <li><a href="#" class="text-slate-300 hover:text-orange-400 transition-colors">About</a>
                             </li>
-                            <li><a href="#" class="text-slate-300 hover:text-orange-400 transition-colors">Miradi</a>
+                            <li><a href="#" class="text-slate-300 hover:text-orange-400 transition-colors">Contracts</a>
                             </li>
-                            <li><a href="#" class="text-slate-300 hover:text-orange-400 transition-colors">Huduma</a>
+                            <li><a href="#" class="text-slate-300 hover:text-orange-400 transition-colors">Services</a>
                             </li>
-                            <li><a href="#"
-                                    class="text-slate-300 hover:text-orange-400 transition-colors">Mawasiliano</a></li>
+                            <li><a href="#" class="text-slate-300 hover:text-orange-400 transition-colors">Contacts</a>
+                            </li>
                         </ul>
                     </div>
 
